@@ -5,12 +5,12 @@ import "react-hamburger-menus/dist/style.css";
 import { useMediaQuery } from '@material-ui/core';
 
 import React, { useState } from "react";
-import styled, { keyframes,css } from "styled-components";
+import styled, { css } from "styled-components";
 
 import { mobile } from "../responsive";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { useHistory } from "react-router-dom";
+import Logo from '../assets/Logo.svg';
 
 const Container = styled.div`
   height: 60px;
@@ -20,10 +20,11 @@ const Container = styled.div`
 const Wrapper = styled.div`
   padding: 10px 20px;
   display: flex;
-  align-items: center;
+  align-items: flex-start; // Updated from 'center'
   justify-content: space-between;
   ${mobile({ padding: "10px 10px" })}
 `;
+
 const StyledUl = styled.ul`
   font-family: 'Lato', sans-serif;
   ${({ isMobile }) => isMobile && css`
@@ -50,39 +51,34 @@ const MenuIcon = styled.div`
   }
 `;
 
-
-
 const Center = styled.div`
   flex: 1;
   text-align: center;
-`;
-
-const LogoAnimation = keyframes`
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.1);
-  }
-  100% {
-    transform: scale(1);
-  }
-`;
-const Logo = styled.h1`
-font-weight: bold;
-line-height: 1.4;
-font-family: "Futura", sans-serif;
-font-weight: 400;
-font-size: 32px;
-animation: ${LogoAnimation} 2s ease-in-out infinite;
-&:hover {
-  animation-play-state: paused;
-}
+  
 
 `;
+
+// Updated CSS styles for the logo image
+const LogoImage = styled.img`
+  width: 100%;
+  max-width: 200px;
+  height: auto;
+  fill: blue;
+  margin-top: -80px; /* Adjust the margin-top value as needed */
+  position: relative;
+  z-index: 1;
+
+  @media screen and (max-width: 768px) {
+    margin-top: -50px; /* Adjust the margin-top value for mobile screens if necessary */
+  }
+`;
+
+
+
+
 
 const Right = styled.div`
-   flex: 1;
+  flex: 1;
   display: flex;
   align-items: center;
   justify-content: flex-end;
@@ -98,6 +94,7 @@ const MenuClass = styled.div`
   margin-left: 25px;
   ${mobile({ fontSize: "12px", marginLeft: "10px" })}
 `;
+
 const StyledLi = styled.li`
   padding: 10px;
   color: #333;
@@ -133,108 +130,99 @@ const StyledLi = styled.li`
     }
   }
 `;
+
 const Navbar = () => {
   const quantity = useSelector((state) => state.cart.quantity);
  
   const isMobile = useMediaQuery('(max-width:600px)');
 
-const history = useHistory();
-const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
-const handleClick = () => {
-history.push('/');
-}
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  }
 
-const toggleMenu = () => {
-setIsOpen(!isOpen);
-}
-return (
-<Container>
-<Wrapper>
-<Left>
-{isMobile && (
-      <GhostButton
-        styles={{
-          floatButtonY: 40,
-          floatButtonX: 10,
-          navigationCard: {
-            backgroundColor: "#fff",
-            top: "50px",
-            width: '300px',
-            left: 0
-          },
-          navigationButton: {
-            borderRadius: "10px",
-            border: "none",
-            // In case you need static not fixed
-            position: "relative",
-            width: "100px",
-            height: "40px",
-            backgroundColor: "transparent",
-            zIndex: 10,
-            boxShadow: "none"
-          },
-          navigationIcon: {
-            zIndex: 10
-          },
-        }}
-      >
-        <StyledUl isMobile={isMobile}>
-          <StyledLi>
-            <Link to="/"> Home </Link>
-          </StyledLi>  
-          <StyledLi>
-            <Link to="/products/Semiformal"> Semi Formal </Link>
-          </StyledLi> 
-          <StyledLi>
-            <Link to="/products/Formal"> Formal </Link>
-          </StyledLi> 
-          <StyledLi>
-            <Link to="/products/DesingerWear"> Designer Wear </Link>
-          </StyledLi> 
-          <StyledLi>
-            <Link to="/products/Casual"> Casual </Link>
-          </StyledLi> 
-          <StyledLi>
-            <Link to="/products/Western"> Western </Link>
-          </StyledLi> 
-          <StyledLi>
-            <Link to="/products/luxury"> Luxury </Link>
-          </StyledLi> 
-        </StyledUl>
-      </GhostButton>
-    )}
-</Left>
+  return (
+    <Container>
+      <Wrapper>
+        <Left>
+          {isMobile && (
+            <GhostButton
+              styles={{
+                floatButtonY: 40,
+                floatButtonX: 10,
+                navigationCard: {
+                  backgroundColor: "#fff",
+                  top: "50px",
+                  width: '300px',
+                  left: 0
+                },
+                navigationButton: {
+                  borderRadius: "10px",
+                  border: "none",
+                  // In case you need static not fixed
+                  position: "relative",
+                  width: "100px",
+                  height: "40px",
+                  backgroundColor: "transparent",
+                  zIndex: 10,
+                  boxShadow: "none"
+                },
+                navigationIcon: {
+                  zIndex: 10
+                },
+              }}
+            >
+              <StyledUl isMobile={isMobile}>
+                <StyledLi>
+                  <Link to="/"> Home </Link>
+                </StyledLi>  
+                <StyledLi>
+                  <Link to="/products/Semiformal"> Semi Formal </Link>
+                </StyledLi> 
+                <StyledLi>
+                  <Link to="/products/Formal"> Formal </Link>
+                </StyledLi> 
+                <StyledLi>
+                  <Link to="/products/DesingerWear"> Designer Wear </Link>
+                </StyledLi> 
+                <StyledLi>
+                  <Link to="/products/Casual"> Casual </Link>
+                </StyledLi> 
+                <StyledLi>
+                  <Link to="/products/Western"> Western </Link>
+                </StyledLi> 
+                <StyledLi>
+                  <Link to="/products/luxury"> Luxury </Link>
+                </StyledLi> 
+              </StyledUl>
+            </GhostButton>
+          )}
+        </Left>
 
-<Center>
-<Link to="/" style={{ textDecoration: "none" }}>
-  <img src="https://i.imgur.com/XwmjJkO.png" alt="Your logo" style={{ transform: "scale(1.3)" }} />
-</Link>
+        <Center>
+          <Link to="/" style={{ textDecoration: "none", color: "white" }}>
+            <LogoImage
+              src={Logo}
+              alt="Your logo"
+            />
+          </Link>
+        </Center>
 
-</Center>
-<Right>
-<MenuIcon onClick={toggleMenu} />
-<>
-<Link to="/register">
-<MenuClass>REGISTER</MenuClass>
-</Link>
-<Link to="/login">
-<MenuClass>SIGN IN</MenuClass>
-</Link>
-</>
+        <Right>
+          <MenuIcon onClick={toggleMenu} />
 
-<Link to="/carts">
-<MenuClass>
-<Badge badgeContent={quantity} color="primary" overlap="rectangular">
-<ShoppingCartOutlined />
-</Badge>
-</MenuClass>
-</Link>
-</Right>
-</Wrapper>
-
-</Container>
-);
+          <Link to="/carts">
+            <MenuClass>
+              <Badge badgeContent={quantity} color="primary" overlap="rectangular">
+                <ShoppingCartOutlined />
+              </Badge>
+            </MenuClass>
+          </Link>
+        </Right>
+      </Wrapper>
+    </Container>
+  );
 }
 
 export default Navbar;

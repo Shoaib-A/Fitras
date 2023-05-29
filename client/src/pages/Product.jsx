@@ -10,6 +10,7 @@ import { useEffect, useState } from "react";
 import { publicRequest } from "../requestMethods";
 import { addProduct } from "../redux/cartRedux";
 import { useDispatch } from "react-redux";
+// import Whatsapp from "../components/WhatsappButton";
 
 const Container = styled.div``;
 
@@ -161,6 +162,7 @@ const Product = () => {
   };
   return (
     <Container>
+      {/* <Whatsapp timeout={5000} /> */}
       <Navbar />
       <Announcement />
       <Wrapper>

@@ -72,7 +72,14 @@ const ProductDetail = styled.div`
 
 const Image = styled.img`
   width: 200px;
+  ${mobile({ 
+    width: "100%", 
+    height: "auto", 
+    objectFit: "contain",
+    marginBottom: "10px",
+  })}
 `;
+
 
 const Details = styled.div`
   padding: 20px;
@@ -163,7 +170,7 @@ const SummaryItemPrice = styled.span``;
 const Cart = () => {
   const cart = useSelector((state) => state.cart);
   
-  const user = useSelector((state) => state.user.currentUser);
+  
 
  
     
@@ -242,23 +249,17 @@ const Cart = () => {
             </SummaryItem>
             <SummaryItem>
               <SummaryItemText>Estimated Shipping</SummaryItemText>
-              <SummaryItemPrice>RS 590</SummaryItemPrice>
+              <SummaryItemPrice>RS 0</SummaryItemPrice>
             </SummaryItem>
             <SummaryItem>
               <SummaryItemText>Shipping Discount</SummaryItemText>
-              <SummaryItemPrice>RS -590</SummaryItemPrice>
+              <SummaryItemPrice>RS 0</SummaryItemPrice>
             </SummaryItem>
             <SummaryItem type="total">
               <SummaryItemText>Total</SummaryItemText>
               <SummaryItemPrice>RS{cart.total}</SummaryItemPrice>
             </SummaryItem>
-            {user ? (
           <PayButton cartItems={cart.products} />
-            ) : (
-             <Link to="/login">
-           <Button >Login To Pay</Button>
-          </Link>
-        )}   
              <Button onClick={handleClick}>Clear Cart</Button>
           </Summary>
         </Bottom>

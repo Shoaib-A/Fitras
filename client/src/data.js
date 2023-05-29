@@ -26,27 +26,21 @@ export const sliderItems = [
   export const categories = [
     {
       id: 1,
-      img: "https://cdn.shopify.com/s/files/1/0726/7962/0911/products/01_f7158c4c-a9f7-4f13-8f48-078771e45d5b_533x.jpg?v=1677573900",
-      title: "Semiformal",
-      cat:"Semiformal"
+      img: "https://i.imgur.com/Sd6NTb5.jpg",
+      title: "Designer Wear",
+      cat:"Designer Wear"
     },
     {
       id: 2,
-      img: "https://pakistanpretwear.com/wp-content/uploads/2017/06/Classy-3-piece-semi-formally-luxury-luxe-Zeen-Cambridge-Green-Lily-Pakistani-Dress-for-Sale-this-Eid-Collection-2017-online-shopping-Unstitched-Pret-Wear-Pakistan-Pret-Wear-758x1137.jpg?ezimgfmt=rs:392x588/rscb1/ngcb1/notWebP",
-      title: "Formal",
-      cat:"Formal"
-    },
-    {
-      id: 3,
-      img: "https://shehrnaz.com/wp-content/uploads/2021/11/015A0036.jpg",
+      img: "https://i.imgur.com/mjRCRI7.jpg",
       title: "Casual",
       cat:"Casual"
     },
     {
-      id: 4,
-      img: "https://i.pinimg.com/736x/84/4f/5b/844f5bbff0e121e8b8a9597c851f75fe.jpg",
-      title: "luxury",
-      cat:"luxury"
+      id: 3,
+      img: "https://i.imgur.com/Kn4XZDW.jpg",
+      title: "Luxury Wear",
+      cat:"Luxury Wear"
     },
   ];
 

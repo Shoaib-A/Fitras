@@ -1,16 +1,12 @@
 import Product from "./pages/Product";
 import Home from "./pages/Home";
 import ProductList from "./pages/ProductList";
-import Register from "./pages/Register";
-import Login from "./pages/Login";
 import Cart from "./pages/Cart";
 import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Redirect,
 } from "react-router-dom";
-import { useSelector } from "react-redux";
 import CheckoutSuccess from './pages/CheckoutSuccess';
 
 const App = () => {
@@ -33,12 +29,9 @@ const App = () => {
         <Route path="/checkout-success" >
           <CheckoutSuccess />
         </Route>
-        <Route exact path="/login">
-        <Login />
-        </Route>
-        <Route  path="/register">
-        <Register />
-        </Route>
+        {/* <Route path="/register" >
+          <Register />
+        </Route> */}
       </Switch>
     </Router>
   );

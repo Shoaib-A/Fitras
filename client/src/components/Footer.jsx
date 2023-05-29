@@ -4,7 +4,6 @@ import {
     MailOutline,
     Phone,
     Room,
-    Twitter,
     WhatsApp,
   } from "@material-ui/icons";
   import styled from "styled-components";
@@ -106,23 +105,25 @@ import {
             humour, or randomised words which don’t look even slightly believable.
           </Desc>
           <SocialContainer>
-         
+          <a href="https://www.facebook.com/fitrasbysaimaarman?mibextid=LQQJ4d" target="_blank" rel="noopener noreferrer">
             <SocialIcon color="3B5999">
-              <Facebook />
-            </SocialIcon>
+      <Facebook />
+        </SocialIcon>
+      </a>
             
             
-            <SocialIcon color="E4405F">
-              <Instagram />
-            </SocialIcon>
+      <a href="https://www.instagram.com/fitrasbysaimaarman?igshid=OGQ5ZDc2ODk2ZA" target="_blank" rel="noopener noreferrer">
+    <SocialIcon color="E4405F">
+      <Instagram />
+    </SocialIcon>
+  </a>
             
-            <SocialIcon color="55ACEE">
-              <Twitter />
-            </SocialIcon>
            
-            <SocialIcon color="E60023">
-              <WhatsApp />
-            </SocialIcon>
+            <a href="https://wa.me/+923105288517" target="_blank" rel="noopener noreferrer">
+         <SocialIcon color="E60023">
+          <WhatsApp />
+         </SocialIcon>
+  </a>
            
           </SocialContainer>
         </Left>
@@ -131,11 +132,8 @@ import {
           <List>
             <ListItem>Home</ListItem>
             <ListItem>Cart</ListItem>
-            <ListItem>Woman Fashion</ListItem>
             <ListItem>Accessories</ListItem>
             <ListItem>My Account</ListItem>
-            <ListItem>Order Tracking</ListItem>
-            <ListItem>Wishlist</ListItem>
             <ListItem>Wishlist</ListItem>
             <ListItem>Terms</ListItem>
           </List>
