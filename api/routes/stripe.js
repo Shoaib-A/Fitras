@@ -32,10 +32,6 @@ router.post("/create-checkout-session", async (req, res) => {
    shipping_address_collection: {
     allowed_countries: ['US', 'CA','PK','GB'],
   },  
-   shipping_options: [
-     { shipping_rate: 'shr_1MnVv8LDF0R8zeLTTm6JgJun' },
-     { shipping_rate: 'shr_1MnVwtLDF0R8zeLT4bLJAZgI' },
-   ],
    customer_email: req.body.email,
    phone_number_collection:{
     enabled: true,
