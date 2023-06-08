@@ -4,7 +4,7 @@ export const sliderItems = [
       img: "https://i.imgur.com/1lwzS5z.jpg",
       title: "Discover Your Style with Fitras Clothing",
       desc: "DON'T COMPROMISE ON STYLE!",
-      bg: "FFFFF7",
+      bg: "faf9f6",
     },
     {
       id: 2,
