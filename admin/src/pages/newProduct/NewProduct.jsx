@@ -21,6 +21,9 @@ export default function NewProduct() {
       return { ...prev, [e.target.name]: e.target.value };
     });
   };
+  const handleCat = (e) => {
+    setCat(e.target.value.split(","));
+  };
  
 
   const handleClick = (e) => {
@@ -86,6 +89,10 @@ export default function NewProduct() {
             placeholder="Title of the Product"
             onChange={handleChange}
           />
+        </div>
+        <div className="addProductItem">
+          <label>Categories</label>
+          <input type="text" placeholder="Formal,Semi Formal" onChange={handleCat} />
         </div>
         
         <div className="addProductItem">

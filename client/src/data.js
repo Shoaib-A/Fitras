@@ -1,46 +1,46 @@
 export const sliderItems = [
     {
       id: 1,
-      img: "https://www.annusabrar.net/images/thumbs/0005931_desktop2.jpeg",
-      title: "SUMMER SALE",
-      desc: "DON'T COMPROMISE ON STYLE! GET FLAT 30% OFF FOR NEW ARRIVALS.",
-      bg: "f5fafd",
+      img: "https://i.imgur.com/1lwzS5z.jpg",
+      title: "Discover Your Style with Fitras Clothing",
+      desc: "DON'T COMPROMISE ON STYLE!",
+      bg: "FFFFF7",
     },
     {
       id: 2,
-      img: "https://www.gulaal.pk/image/catalog/Slider-(Wedding-Formals-2022)3.jpg",
-      title: "AUTUMN COLLECTION",
-      desc: "DON'T COMPROMISE ON STYLE! GET FLAT 30% OFF FOR NEW ARRIVALS.",
+      img: "https://i.imgur.com/EAqaqlW.jpg",
+      title: "Unleash Your Fashion Sense with Fitras Clothing",
+      desc: "your destination for trendy and affordable apparel",
       bg: "fcf1ed",
     },
-    {
-      id: 3,
-      img: "https://www.gulaal.pk/image/catalog/Luxury%20Pret%20-%20re-shoot/Slider-(Luxury-Pret-2022)-3.jpg",
-      title: "Semi Formal",
-      desc: "DON'T COMPROMISE ON STYLE! GET FLAT 30% OFF FOR NEW ARRIVALS.",
-      bg: "fbf0f4",
-    },
+    // {
+    //   id: 3,
+    //   img: "https://i.imgur.com/Sd6NTb5.jpg",
+    //   title: "Elevate Your Wardrobe with Fitras Clothing",
+    //   desc: "your go-to shop for fashion-forward outfits.",
+    //   bg: "fbf0f4",
+    // },
    
   ];
 
   export const categories = [
     {
       id: 1,
-      img: "https://i.imgur.com/Sd6NTb5.jpg",
-      title: "Designer Wear",
-      cat:"Designer Wear"
+      img: "https://i.imgur.com/7rG97ih.jpg",
+      title: "Luxury Lawn",
+      cat:"LuxuryLawn"
     },
     {
       id: 2,
       img: "https://i.imgur.com/mjRCRI7.jpg",
-      title: "Casual",
-      cat:"Casual"
+      title: "Casuals",
+      cat:"Casuals"
     },
     {
       id: 3,
       img: "https://i.imgur.com/Kn4XZDW.jpg",
-      title: "Luxury Wear",
-      cat:"Luxury Wear"
+      title: "Designer Wear",
+      cat:"DesignerWear"
     },
   ];
 

@@ -25,6 +25,8 @@ import {
   
   const Desc = styled.p`
     margin: 20px 0px;
+    font-size:18px;
+    font-weight:500;
   `;
   
   const SocialContainer = styled.div`
@@ -69,7 +71,7 @@ import {
   const ListItem = styled.li`
     width: 50%;
     margin-bottom: 20px;
-    font-size: 14px;
+    font-size: 16px;
     transition: color 0.2s ease-in-out;
     &:hover {
       cursor: pointer;
@@ -100,9 +102,10 @@ import {
         <Left>
           <Logo>Fitras.</Logo>
           <Desc>
-            There are many variations of passages of Lorem Ipsum available, but
-            the majority have suffered alteration in some form, by injected
-            humour, or randomised words which don’t look even slightly believable.
+          There are many variations of stylish fashion statements available at Fitras Clothing,
+           each crafted with care and attention to detail. Our collection embodies the perfect blend of comfort
+            and elegance, ensuring you always look and feel your best. Explore our curated selection
+             today and discover the epitome of fashionable attire.
           </Desc>
           <SocialContainer>
           <a href="https://www.facebook.com/fitrasbysaimaarman?mibextid=LQQJ4d" target="_blank" rel="noopener noreferrer">
@@ -141,13 +144,13 @@ import {
         <Right>
           <Title>Contact</Title>
           <ContactItem>
-            <Room style={{marginRight:"10px"}}/> 622 Dixie Path , South Tobinchester 98336
+            <Room style={{marginRight:"10px"}}/> Islamabad,Pakistan
           </ContactItem>
           <ContactItem>
-            <Phone style={{marginRight:"10px"}  } /> +923424027525
+            <Phone style={{marginRight:"10px"}  } /> +923105288517
           </ContactItem>
           <ContactItem>
-            <MailOutline style={{marginRight:"10px"}} /> contact@shoaibashraf3733@gmail.com.dev
+            <MailOutline style={{marginRight:"10px"}} />FitrasClothing@gmail.com
           </ContactItem>
           <Payment src="https://i.ibb.co/Qfvn4z6/payment.png" />
         </Right>

@@ -1,9 +1,8 @@
 import { ArrowLeftOutlined, ArrowRightOutlined } from "@material-ui/icons";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import styled from "styled-components";
 import { sliderItems } from "../data";
 import { mobile } from "../responsive";
-import { useEffect } from "react";
 
 const Container = styled.div`
   width: 100%;
@@ -11,115 +10,171 @@ const Container = styled.div`
   display: flex;
   position: relative;
   overflow: hidden;
-  ${mobile({ height: "50vh"
-})}
+
+  ${mobile({ height: "auto" })}
 `;
 
 const Arrow = styled.div`
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   background-color: #fff7f7;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   position: absolute;
-  top: 0;
-  bottom: 0;
-  left: ${(props) => props.direction === "left" && "10px"};
-  right: ${(props) => props.direction === "right" && "10px"};
-  margin: auto;
+  top: 50%;
+  transform: translateY(-50%);
   cursor: pointer;
   opacity: 0.5;
   z-index: 2;
-  
-  ${mobile({ display: "none" })}
-`;
 
+  ${(props) => props.direction === "left" && "left: 20px;"}
+  ${(props) => props.direction === "right" && "right: 20px;"}
+
+  &:hover {
+    background-color: #e5e5e5;
+    opacity: 1;
+  }
+`;
 
 const Wrapper = styled.div`
   height: 100%;
   display: flex;
-  transition: all 1.5s ease;
+  transition: all 0.5s ease;
   transform: translateX(${(props) => props.slideIndex * -100}vw);
+
+  ${mobile({ flexDirection: "column" })}
 `;
 
 const Slide = styled.div`
   width: 100vw;
-  height: 100%;
+  height: 100vh;
   display: flex;
   align-items: center;
   background-color: #${(props) => props.bg};
-  ${mobile({ flexDirection: "column" })}
+
+  ${mobile({ height: "auto", flexDirection: "column" })}
+
+  &:hover {
+    transform: scale(1.02);
+  }
 `;
 
 const ImgContainer = styled.div`
   height: 100%;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
+  flex: 1;
 `;
 
 const Image = styled.img`
   height: 100%;
   width: 100%;
   object-fit: cover;
-  ${mobile({ objectFit: "contain", height: "100vh", width: "100%"})}
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+  
+  transition: all 0.3s ease;
+
+  &:hover {    
+    transform: scale(1.01);
+  }
 `;
-
-
 
 const InfoContainer = styled.div`
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: white;
-  text-align: center;
-  z-index: 2;
+  flex: 1;
+  padding: 50px;
+
+  ${mobile({ padding: "20px" })}
 `;
 
+const Title = styled.h1`
+  font-size: 70px;
+  text-align: center;
 
+  ${mobile({ fontSize: "40px" })}
+`;
 
+const Desc = styled.p`
+  margin: 50px 0px;
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: 3px;
+  text-align: center;
+
+  ${mobile({ margin: "20px 0px", fontSize: "16px" })}
+`;
+
+const Button = styled.button`
+  padding: 10px;
+  font-size: 20px;
+  background-color: transparent;
+  cursor: pointer;
+
+  ${mobile({ fontSize: "16px" })}
+`;
 
 const Slider = () => {
   const [slideIndex, setSlideIndex] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
+
   useEffect(() => {
-    const interval = setInterval(() => {
-      setSlideIndex(slideIndex < 2 ? slideIndex + 1 : 0);
-    }, 5000);
-    return () => clearInterval(interval);
-  }, [slideIndex]);
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    handleResize(); // Check initial window size
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!isMobile) {
+      const interval = setInterval(() => {
+        setSlideIndex((prevIndex) => (prevIndex < 1 ? prevIndex + 1 : 0));
+      }, 5000);
+
+      return () => clearInterval(interval);
+    }
+  }, [isMobile]);
+
   const handleClick = (direction) => {
     if (direction === "left") {
-      setSlideIndex(slideIndex > 0 ? slideIndex - 1 : 2);
+      setSlideIndex((prevIndex) => (prevIndex > 0 ? prevIndex - 1 : 1));
     } else {
-      setSlideIndex(slideIndex < 2 ? slideIndex + 1 : 0);
+      setSlideIndex((prevIndex) => (prevIndex < 1 ? prevIndex + 1 : 0));
     }
   };
 
+  const displayedSliderItems = sliderItems.slice(0, 2);
+
   return (
     <Container>
-      <Arrow direction="left" onClick={() => handleClick("left")}>
-        <ArrowLeftOutlined />
-      </Arrow>
+      {!isMobile && (
+        <>
+          <Arrow direction="left" onClick={() => handleClick("left")}>
+            <ArrowLeftOutlined />
+          </Arrow>
+          <Arrow direction="right" onClick={() => handleClick("right")}>
+            <ArrowRightOutlined />
+          </Arrow>
+        </>
+      )}
       <Wrapper slideIndex={slideIndex}>
-        {sliderItems.map((item) => (
+        {displayedSliderItems.map((item) => (
           <Slide bg={item.bg} key={item.id}>
             <ImgContainer>
               <Image src={item.img} />
             </ImgContainer>
             <InfoContainer>
-             
+              <Title>{item.title}</Title>
+              <Desc>{item.desc}</Desc>
+              <Button>SHOW NOW</Button>
             </InfoContainer>
           </Slide>
         ))}
       </Wrapper>
-      <Arrow direction="right" onClick={() => handleClick("right")}>
-        <ArrowRightOutlined />
-      </Arrow>
     </Container>
   );
 };

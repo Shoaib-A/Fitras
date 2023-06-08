@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import { useState, useEffect } from "react";
 
-
 const Container = styled.div`
   height: 30px;
   background-color: teal;
@@ -9,15 +8,19 @@ const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 18px;
-  font-weight: 500;
+  font-size: 16px;
+  font-weight: 300;
+  padding: 10px;
+  box-sizing: border-box;
+  @media (max-width: 768px) {
+    font-size: 14px;
+  }
 `;
 
 const Announcement = () => {
   const [announcements, setAnnouncements] = useState([
-    "Super Deal! Free Shipping on Orders",
-    "Have a question? Give us a call at 123-456-7890",
-
+    "Super Deal!",
+    "Have a question? Give us a message at +92310-5288517",
   ]);
   const [currentAnnouncementIndex, setCurrentAnnouncementIndex] = useState(0);
 
@@ -30,9 +33,7 @@ const Announcement = () => {
     return () => clearInterval(intervalId);
   }, [announcements.length]);
 
-  return (
-    <Container>{announcements[currentAnnouncementIndex]}</Container>
-  );
+  return <Container>{announcements[currentAnnouncementIndex]}</Container>;
 };
 
 export default Announcement;
