@@ -4,7 +4,6 @@ import styled from "styled-components";
 import { sliderItems } from "../data";
 import { mobile } from "../responsive";
 import { useEffect } from "react";
-import 
 
 const Container = styled.div`
   width: 100%;
@@ -27,10 +26,10 @@ const Arrow = styled.div`
   top: 0;
   bottom: 0;
   left: ${(props) => props.direction === "left" && "10px"};
-  right: ${(props) => props.direction === "right" && "10px"};
+  right: ${(props) => props.direction === "right" && "-5px"};
   margin: auto;
   cursor: pointer;
-  opacity: 0.5;
+  opacity: 0.7;
   z-index: 2;
 `;
 
@@ -60,25 +59,10 @@ const ImgContainer = styled.div`
 
 const Image = styled.img`
   height: ${(props) => (props.isMobile ? "100%" : "100%")};
-  width: ${(props) => (props.isMobile ? "100%" : "100%")};
+  width: ${(props) => (props.isMobile ? "100%" : "70%")};
   object-fit: cover;
   
 `;
-
-
-
-const InfoContainer = styled.div`
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: white;
-  text-align: center;
-  z-index: 2;
-`;
-
-
-
 
 const Slider = () => {
   const [slideIndex, setSlideIndex] = useState(0);
@@ -108,9 +92,6 @@ const Slider = () => {
             <ImgContainer>
               <Image src={item.img} />
             </ImgContainer>
-            <InfoContainer>
-             
-            </InfoContainer>
           </Slide>
         ))}
       </Wrapper>
