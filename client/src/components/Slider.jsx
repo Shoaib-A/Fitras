@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { sliderItems } from "../data";
 import { mobile } from "../responsive";
 import { useEffect } from "react";
+import 
 
 const Container = styled.div`
   width: 100%;
