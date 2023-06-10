@@ -64,12 +64,13 @@ const LogoImage = styled.img`
   max-width: 200px;
   height: auto;
   fill: blue;
-  margin-top: -80px; /* Adjust the margin-top value as needed */
+  margin-top: -110px; /* Adjust the margin-top value as needed */
   position: relative;
   z-index: 1;
+  transform: scale(1.2);
 
   @media screen and (max-width: 768px) {
-    margin-top: -50px; /* Adjust the margin-top value for mobile screens if necessary */
+    margin-top: -60px; /* Adjust the margin-top value for mobile screens if necessary */
   }
 `;
 
