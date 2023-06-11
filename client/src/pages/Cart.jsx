@@ -169,11 +169,6 @@ const SummaryItemPrice = styled.span``;
 
 const Cart = () => {
   const cart = useSelector((state) => state.cart);
-  
-  
-
- 
-    
   const dispatch = useDispatch();
   
   const handleClick = () => {
